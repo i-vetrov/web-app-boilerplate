@@ -1,0 +1,30 @@
+{
+  "name": "webApp-boilerplate",
+  "version": "0.0.1",
+  "description": "Sample web application with Angualar.js and SCSS",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:invatechs/webApp-boilerplate.git"
+  },
+  "engines": {
+    "node": ">=0.6.6",
+    "npm": ">=1.1.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-string-replace": "~0.2.7",
+    "grunt-contrib-clean": "~0.6.0",
+    "js-beautify": "~1.5.1",
+    "grunt-html-build": "~0.3.2",
+    "grunt-template": "~0.2.3",
+    "grunt-contrib-jshint":"~0.10.0",
+    "grunt-contrib-sass":"~0.7.3"
+  },
+  "private": false
+}
