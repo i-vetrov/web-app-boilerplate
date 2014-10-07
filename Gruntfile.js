@@ -8,6 +8,11 @@ module.exports = function(grunt) {
       jsBuildPath: '<%= buildPath %>/www/js',
       cssBuildPath: '<%= buildPath %>/css',
 
+      watch: {
+        files: ['<%= srcPath %>/**/*.*', 'Gruntfile.js'],
+        tasks: ['dev']
+      },
+
       clean: {
         build: ['<%= buildPath %>'],
         temp: ['<%= tempPath %>']
@@ -15,7 +20,29 @@ module.exports = function(grunt) {
 
       jshint: {
         test: {
-          src: ['<%= srcPath %>/www/app/app.js', '<%= srcPath %>/www/app/controllers/*.js']
+          src: ['<%= srcPath %>/www/app/app.js', '<%= srcPath %>/www/app/controllers/*.js'],
+          options: {
+            predef: ['$', 'angular', 'Firebase', 'console', 'spinner', 'geoLocation', 'google'],
+            curly: true,
+            eqeqeq: true,
+            immed: true,
+            latedef: true,
+            newcap: true,
+            noarg: true,
+            sub: true,
+            undef: true,
+            boss: true,
+            eqnull: true,
+            browser: true,
+            globals: {
+              require: true,
+              define: true,
+              requirejs: true,
+              describe: true,
+              expect: true,
+              it: true
+            }
+          }
         }
       },
 
@@ -54,6 +81,7 @@ module.exports = function(grunt) {
             scripts: {
               libs: [
                 '<%= buildPath %>/www/js/lib/jquery.min.js',
+                '<%= buildPath %>/www/js/lib/jquery-ui.min.js',
                 '<%= buildPath %>/www/js/lib/angular.min.js',
                 '<%= buildPath %>/www/js/lib/angular-route.min.js'
               ],
@@ -73,6 +101,7 @@ module.exports = function(grunt) {
             scripts: {
               libs: [
                 '<%= buildPath %>/www/js/lib/jquery.min.js',
+                '<%= buildPath %>/www/js/lib/jquery-ui.min.js',
                 '<%= buildPath %>/www/js/lib/angular.min.js',
                 '<%= buildPath %>/www/js/lib/angular-route.min.js'
               ],
@@ -113,6 +142,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-html-build');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   
   grunt.registerTask('cleaning', ['clean:build', 'clean:temp']);
   grunt.registerTask('dev', ['cleaning', 'jshint:test', 'sass:dev', 'copy:dev', 'htmlbuild:dev']);
